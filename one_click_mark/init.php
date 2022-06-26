@@ -1,5 +1,5 @@
 <?php
-class One_Click_Catchup extends Plugin {
+class One_Click_Mark extends Plugin {
 
 	function about() {
 		return array(null,
