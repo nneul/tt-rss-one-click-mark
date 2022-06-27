@@ -77,7 +77,7 @@ class One_Click_Mark extends Plugin {
 
                 <p>
 
-                <?= \Controls\checkbox_tag("disable_right_button", $disable_dropdown_checked, "on", [], "disable_dropdown"); ?>
+                <?= \Controls\checkbox_tag("disable_dropdown", $disable_dropdown_checked, "on", [], "disable_dropdown"); ?>
                 <label for="disable_dropdown"><?= __("Hide Mark as read menu") ?></label>
 
                 <hr/>
