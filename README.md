@@ -9,6 +9,8 @@ A [TT-RSS](https://tt-rss.org/) plugin that will add a one-click 'Mark as read' 
 
 ![Screenshot](https://github.com/nneul/tt-rss-one-click-mark/raw/main/screenshots/one_click_mark.png)
 
+![Prefs Screenshot](https://github.com/nneul/tt-rss-one-click-mark/raw/main/screenshots/one_click_mark_prefs.png)
+
 ### Hiding the original button
 
 1. Go to Preferences / Theme / Customize
