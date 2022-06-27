@@ -7,7 +7,7 @@ A [TT-RSS](https://tt-rss.org/) plugin that will add a one-click 'Mark as read' 
 1. Clone this repo or just grab the [latest release](https://github.com/nneul/tt-rss-one-click-mark/releases/latest) and extract the `one_click_mark` folder into the `plugins.local` folder of ttrss
 2. Enable in preferences
 
-![Screenshot](https://github.com/nneul/tt-rss-one-click-mark/raw/main/screenshots/one-click-catchup.png)
+![Screenshot](https://github.com/nneul/tt-rss-one-click-mark/raw/main/screenshots/one_click_mark.png)
 
 ### Hiding the original button
 
