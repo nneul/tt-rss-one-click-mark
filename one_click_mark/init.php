@@ -45,7 +45,7 @@ class One_Click_Mark extends Plugin {
 
         $disable_left_button_checked = $disable_left_button ? "checked" : "";
         $disable_right_button_checked = $disable_right_button ? "checked" : "";
-        $disable_dropdown_checked = $disable_right_button ? "checked" : "";
+        $disable_dropdown_checked = $disable_dropdown ? "checked" : "";
 
         ?>
         <div dojoType="dijit.layout.AccordionPane"
