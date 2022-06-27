@@ -8,3 +8,8 @@ A [TT-RSS](https://tt-rss.org/) plugin that will add a one-click 'Mark as read' 
 2. Enable in preferences
 
 ![Screenshot](https://github.com/nneul/tt-rss-one-click-mark/raw/main/screenshots/one-click-catchup.png)
+
+### Hiding the original button
+
+1. Go to Preferences / Theme / Customize
+2. Copy & paste this css: `#main-catchup-dropdown { display: none !important; }`
