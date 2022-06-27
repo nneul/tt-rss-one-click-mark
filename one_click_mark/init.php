@@ -68,12 +68,12 @@ class One_Click_Mark extends Plugin {
                 <p>
 
                 <?= \Controls\checkbox_tag("disable_left_button", $disable_left_button_checked, "on", [], "disable_left_button"); ?>
-                <label for="disable_left_button"><?= __("Hide Left Mark as read button") ?></label>
+                <label for="disable_left_button"><?= __("Hide left Mark as read button") ?></label>
 
                 <p>
 
                 <?= \Controls\checkbox_tag("disable_right_button", $disable_right_button_checked, "on", [], "disable_right_button"); ?>
-                <label for="disable_right_button"><?= __("Hide Right Mark as read button") ?></label>
+                <label for="disable_right_button"><?= __("Hide right Mark as read button") ?></label>
 
                 <p>
 
