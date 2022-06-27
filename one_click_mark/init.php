@@ -19,7 +19,7 @@ class One_Click_Mark extends Plugin {
         $disable_button = $this->host->get($this, "disable_left_button");
 
         if ( ! $disable_button ) {
-            print "<button onclick=\"Feeds.catchupCurrent('')\">" . __('Mark as read') . "</button>\n";
+            print "<button dojoType=\"dijit.form.Button\" onclick=\"Feeds.catchupCurrent('')\">" . __('Mark as read') . "</button>\n";
         }
 	}
 
@@ -27,7 +27,7 @@ class One_Click_Mark extends Plugin {
         $disable_button = $this->host->get($this, "disable_right_button");
 
         if ( ! $disable_button ) {
-            print "<button onclick=\"Feeds.catchupCurrent('')\">" . __('Mark as read') . "</button>\n";
+            print "<button dojoType=\"dijit.form.Button\" onclick=\"Feeds.catchupCurrent('')\">" . __('Mark as read') . "</button>\n";
         }
     }
 
