@@ -1,6 +1,9 @@
 <?php
 class One_Click_Mark extends Plugin {
 
+	/** @var PluginHost $host */
+	private $host;
+
 	function about() {
 		return array(null,
 			"Adds additional single click 'Mark as read' buttons on main toolbar",
