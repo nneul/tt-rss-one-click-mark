@@ -20,6 +20,7 @@ class One_Click_Mark extends Plugin {
 
 	function hook_main_toolbar_button() {
         $disable_dropdown = $this->host->get($this, "disable_dropdown");
+        $disable_special = $this->host->get($this, "disable_special");
 
         if ( $disable_dropdown ) {
             print "<style>#main-catchup-dropdown { display: none !important; }</style>";
@@ -28,15 +29,26 @@ class One_Click_Mark extends Plugin {
         $disable_button = $this->host->get($this, "disable_left_button");
 
         if ( ! $disable_button ) {
-            print "<button dojoType=\"dijit.form.Button\" onclick=\"Feeds.catchupCurrent('')\"><i class=\"material-icons\">done_all</i>" . __('Mark as read') . "</button>\n";
+            $markread_onclick = "Feeds.catchupCurrent('')";
+            if ( $disable_special ) {
+                $markread_onclick = "if(Feeds.getActive()>0) { Feeds.catchupCurrent(''); } else { alert('disabled for special feeds'); }";
+            }
+
+            print "<button dojoType=\"dijit.form.Button\" onclick=\"$markread_onclick\"><i class=\"material-icons\">done_all</i>" . __('Mark as read') . "</button>\n";
         }
 	}
 
 	function hook_toolbar_button() {
         $disable_button = $this->host->get($this, "disable_right_button");
+        $disable_special = $this->host->get($this, "disable_special");
+
+        $markread_onclick = "Feeds.catchupCurrent('')";
+        if ( $disable_special ) {
+            $markread_onclick = "if(Feeds.getActive()>0) { Feeds.catchupCurrent(''); } else { alert('disabled for special feeds'); }";
+        }
 
         if ( ! $disable_button ) {
-            print "<button dojoType=\"dijit.form.Button\" onclick=\"Feeds.catchupCurrent('')\"><i class=\"material-icons\">done_all</i>" . __('Mark as read') . "</button>\n";
+            print "<button dojoType=\"dijit.form.Button\" onclick=\"$markread_onclick\"><i class=\"material-icons\">done_all</i>" . __('Mark as read') . "</button>\n";
         }
     }
 
@@ -45,10 +57,12 @@ class One_Click_Mark extends Plugin {
         $disable_left_button = $this->host->get($this, "disable_left_button");
         $disable_right_button = $this->host->get($this, "disable_right_button");
         $disable_dropdown = $this->host->get($this, "disable_dropdown");
+        $disable_special = $this->host->get($this, "disable_special");
 
         $disable_left_button_checked = $disable_left_button ? "checked" : "";
         $disable_right_button_checked = $disable_right_button ? "checked" : "";
         $disable_dropdown_checked = $disable_dropdown ? "checked" : "";
+        $disable_special_checked = $disable_special ? "checked" : "";
 
         ?>
         <div dojoType="dijit.layout.AccordionPane"
@@ -83,6 +97,11 @@ class One_Click_Mark extends Plugin {
                 <?= \Controls\checkbox_tag("disable_dropdown", $disable_dropdown_checked, "on", [], "disable_dropdown"); ?>
                 <label for="disable_dropdown"><?= __("Hide Mark as read menu") ?></label>
 
+                <p>
+
+                <?= \Controls\checkbox_tag("disable_special", $disable_special_checked, "on", [], "disable_special"); ?>
+                <label for="disable_special"><?= __("Disable Mark as read for Special Feeds") ?></label>
+
                 <hr/>
 
                 <?= \Controls\submit_tag(__("Save")) ?>
@@ -100,6 +119,9 @@ class One_Click_Mark extends Plugin {
 
         $disable_dropdown = checkbox_to_sql_bool($_POST["disable_dropdown"]) == true;
         $this->host->set($this, "disable_dropdown", $disable_dropdown);
+
+        $disable_special = checkbox_to_sql_bool($_POST["disable_special"]) == true;
+        $this->host->set($this, "disable_special", $disable_special);
 
         echo __("Configuration saved.");
     }
